@@ -7,15 +7,15 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.4.5</version> <!-- Latest stable version compatible with cloud 2024.0.x -->
+    <version>3.4.5</version>
     <relativePath/>
   </parent>
 
   <groupId>com.chat.app</groupId>
-  <artifactId>api-gateway</artifactId>
+  <artifactId>discovery-server</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>api-gateway</name>
-  <description>Gateway for Secure Chat App</description>
+  <name>discovery-server</name>
+  <description>Spring Boot Eureka Discovery Server</description>
 
   <properties>
     <java.version>21</java.version>
@@ -23,31 +23,16 @@
   </properties>
 
   <dependencies>
-    <!-- Spring Web -->
+    <!-- Core Starter -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
+      <artifactId>spring-boot-starter</artifactId>
     </dependency>
 
-    <!-- Eureka CLIENT -->
+    <!-- Eureka Server -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
-
-    <!-- Spring Boot Devtools -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-devtools</artifactId>
-      <scope>runtime</scope>
-      <optional>true</optional>
-    </dependency>
-
-    <!-- Lombok -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <optional>true</optional>
+      <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
     </dependency>
 
     <!-- Test -->
@@ -72,25 +57,7 @@
 
   <build>
     <plugins>
-      <!-- Java Compiler Plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <annotationProcessorPaths>
-            <path>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>1.18.30</version>
-            </path>
-          </annotationProcessorPaths>
-        </configuration>
-      </plugin>
-
-      <!-- Spring Boot Maven Plugin -->
+      <!-- Spring Boot Plugin -->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
